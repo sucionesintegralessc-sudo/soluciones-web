@@ -1,0 +1,276 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluciones Integrales | Diseño, Fabricación y Ejecución</title>
+    <!-- Importamos las fuentes oficiales desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Estilos base para PC (Pantalla fija sin scroll) */
+        html, body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #0b0c10;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2vh 3vw;
+        }
+        header {
+            text-align: center;
+        }
+        .slogan {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+            color: #c5c6c7;
+            margin-bottom: 0.4vh;
+            font-weight: 700;
+        }
+        .brand-isotipo {
+            width: 50px;
+            height: 35px;
+            margin: 0 auto 0.4vh auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .bar-horizontal-top, .bar-horizontal-bottom {
+            width: 100%;
+            height: 5px;
+            background-color: #ffffff;
+            border-radius: 1px;
+        }
+        .bar-vertical {
+            width: 5px;
+            height: 18px;
+            background-color: #ffffff;
+            margin-top: -25px;
+            border-radius: 1px;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.8rem, 3.2vw, 2.8rem);
+            letter-spacing: 2px;
+            color: #ffffff;
+            line-height: 1.1;
+        }
+        .sub-tagline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+            letter-spacing: 3px;
+            color: #8c92a4;
+            margin-top: 0.1vh;
+        }
+        /* Grilla de 4 bloques para PC (2x2) */
+        main {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2vh 2vw;
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .service-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            padding: 1.2vh 1.5vw;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .service-box h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(0.95rem, 1.5vw, 1.3rem);
+            letter-spacing: 1px;
+            margin-bottom: 0.6vh;
+            border-bottom: 1px solid rgba(102, 252, 241, 0.2);
+            padding-bottom: 0.3vh;
+        }
+        /* Enlaces de los títulos de las categorías principales */
+        .service-box h3 a {
+            color: #66fcf1;
+            text-decoration: none;
+            transition: opacity 0.2s;
+            display: block;
+        }
+        .service-box h3 a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+        .service-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4vh;
+            text-align: left;
+        }
+        .service-list li a {
+            color: #c5c6c7;
+            text-decoration: none;
+            font-size: clamp(0.6rem, 0.9vw, 0.8rem);
+            font-weight: 400;
+            transition: all 0.2s ease;
+            display: block;
+            padding: 0.2vh 0.4vh;
+            border-radius: 4px;
+        }
+        .service-list li a:hover {
+            color: #66fcf1;
+            background: rgba(102, 252, 241, 0.08);
+            padding-left: 5px;
+        }
+        /* Pie de página con dirección exacta y redes */
+        footer {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 0.8vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6vh;
+        }
+        .cta-btn {
+            background-color: #25d366;
+            color: #ffffff;
+            padding: 0.8vh 1.8vw;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: clamp(0.7rem, 1.05vw, 0.9rem);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+        .contact-info {
+            font-size: clamp(0.55rem, 0.85vw, 0.75rem);
+            color: #c5c6c7;
+            display: flex;
+            gap: 1vw;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-info a {
+            color: #66fcf1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* DISEÑO ADAPTABLE PARA TELÉFONOS Y TABLETS (RESPONSIVE) */
+        @media (max-width: 768px) {
+            html, body {
+                height: auto;
+                overflow: auto;
+                padding: 4vh 5vw;
+            }
+            main {
+                grid-template-columns: 1fr;
+                gap: 2vh;
+                margin: 2vh 0;
+            }
+            .service-box {
+                padding: 2vh;
+            }
+            .service-list li a {
+                font-size: 0.9rem;
+                padding: 0.5vh 0;
+            }
+            .contact-info {
+                flex-direction: column;
+                gap: 0.5vh;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="slogan">Diseñamos lo que sueñas... te entregamos lo que quieres !</div>
+        <div class="brand-isotipo">
+            <div class="bar-horizontal-top"></div>
+            <div class="bar-vertical"></div>
+            <div class="bar-horizontal-bottom"></div>
+        </div>
+        <h1>SOLUCIONES INTEGRALES</h1>
+        <div class="sub-tagline">DISEÑO . FABRICACIÓN . EJECUCIÓN</div>
+    </header>
+
+    <!-- NÚCLEO DE SERVICIOS Y SHOWROOM (CON ENLACES A LAS SUBPÁGINAS) -->
+    <main>
+        <!-- Bloque 1: Metalmecánica -->
+        <div class="service-box">
+            <h3><a href="./metalmecanica.html">METALMECÁNICA</a></h3>
+            <ul class="service-list">
+                <li><a href="#">▪ Estructuras</a></li>
+                <li><a href="#">▪ Portones</a></li>
+                <li><a href="#">▪ Puertas Basculantes</a></li>
+                <li><a href="#">▪ Rejas de Seguridad</a></li>
+            </ul>
+        </div>
+
+        <!-- Bloque 2: Mobiliario y Carpintería -->
+        <div class="service-box">
+            <h3><a href="mobiliario.html">MOBILIARIO & CARPINTERÍA</a></h3>
+            <ul class="service-list">
+                <li><a href="#">▪ Diseño industrial metal-madera</a></li>
+                <li><a href="#">▪ Mobiliario en melamina a la medida</a></li>
+                <li><a href="#">▪ Cocinas</a></li>
+                <li><a href="#">▪ Closets</a></li>
+            </ul>
+        </div>
+
+        <!-- Bloque 3: Adecuación de Espacios -->
+        <div class="service-box">
+            <h3><a href="adecuacion.html">ADECUACIÓN DE ESPACIOS</a></h3>
+            <ul class="service-list">
+                <li><a href="#">▪ Optimización</a></li>
+                <li><a href="#">▪ Transformación integral</a></li>
+                <li><a href="#">▪ Iluminación inteligente</a></li>
+                <li><a href="#">▪ Sistemas solares</a></li>
+            </ul>
+        </div>
+
+        <!-- Bloque 4: Showroom & Tienda Digital -->
+        <div class="service-box">
+            <h3><a href="showroom.html">SHOWROOM & TIENDA DIGITAL</a></h3>
+            <ul class="service-list">
+                <li><a href="#">▪ Lámparas solares (Exhibición y venta)</a></li>
+                <li><a href="#">▪ Tornillería en acero inoxidable (Por encargo)</a></li>
+                <li><a href="#">▪ Catálogo de planos paramétricos</a></li>
+                <li><a href="#">▪ Modelos 3D y recursos descargables</a></li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA CON DIRECCIÓN EXACTA Y CONTACTO TÁCTIL -->
+    <footer>
+        <a href="https://wa.me/584247775046" target="_blank" class="cta-btn">💬 Contactar por WhatsApp: 0424 777 5046</a>
+        <div class="contact-info">
+            <span>RIF: V-12232024-0</span>
+            <span>📍 Calle 3 con Carrera 2, Local N° 1-85, sector Santa Teresa, San Cristóbal, Táchira</span>
+            <span>✉️ <a href="mailto:contacto@solucionesintegrales.com.ve">contacto@solucionesintegrales.com.ve</a></span>
+            <span>📸 <a href="https://instagram.com/solint_sc" target="_blank">@solint_sc</a></span>
+        </div>
+    </footer>
+
+</body>
+</html>
